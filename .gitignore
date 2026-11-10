@@ -1,0 +1,17 @@
+.venv/
+__pycache__/
+*.pyc
+.pytest_cache/
+.tinyc_cache.json
+runs/
+runs_*.log
+runs_done.flag
+data/
+out/
+build/
+*.pt
+*.ckpt
+.terraform/
+*.tfstate*
+*.exe
+*.obj

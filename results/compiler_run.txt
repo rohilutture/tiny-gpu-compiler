@@ -1,0 +1,17 @@
+﻿['gelu_bias', 'tinyc_fused', '0.1937', 1, '268.5']
+['gelu_bias', 'tinyc_unfused', '2.1135', 10, '3221.2']
+['gelu_bias', 'torch_eager', '2.0848', '', 'nan']
+1 kernels (unfused: 10), modeled traffic 268.45 MB (unfused 3221.24 MB)
+  [ewise ] -> %15(8192, 4096) reads ['%0', '%1'] fuses: binary.add, binary.mul, binary.mul, binary.mul, binary.mul, binary.add, binary.mul, unary.tanh, binary.add, binary.mul  cfg={'block': 512, 'ept': 4}
+['softmax', 'tinyc_fused', '0.3410', 3, '537.0']
+['softmax', 'tinyc_unfused', '0.6993', 5, '1073.9']
+['softmax', 'torch_eager', '0.1794', '', 'nan']
+3 kernels (unfused: 5), modeled traffic 537.03 MB (unfused 1073.87 MB)
+  [reduce] -> %1(8192, 1) reads ['%0'] fuses: -  cfg={'block': 1024}
+  [reduce] -> %4(8192, 1) reads ['%0', '%1'] fuses: binary.sub, unary.exp  cfg={'block': 256}
+  [ewise ] -> %5(8192, 4096) reads ['%0', '%1', '%4'] fuses: binary.sub, unary.exp, binary.div  cfg={'block': 512, 'ept': 2}
+['matmul_bias_gelu', 'tinyc_fused', '0.8550', 1, '33.6']
+['matmul_bias_gelu', 'tinyc_unfused', '0.9636', 11, '436.2']
+['matmul_bias_gelu', 'torch_eager', '0.2497', '', 'nan']
+1 kernels (unfused: 11), modeled traffic 33.56 MB (unfused 436.22 MB)
+  [matmul] -> %17(2048, 2048) reads ['%0', '%1', '%2'] fuses: binary.add, binary.mul, binary.mul, binary.mul, binary.mul, binary.add, binary.mul, unary.tanh, binary.add, binary.mul  cfg={'tile': 16}

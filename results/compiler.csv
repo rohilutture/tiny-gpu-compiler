@@ -1,0 +1,10 @@
+case,impl,ms,kernels,modeled_MB
+gelu_bias,tinyc_fused,0.1937,1,268.5
+gelu_bias,tinyc_unfused,2.1135,10,3221.2
+gelu_bias,torch_eager,2.0848,,nan
+softmax,tinyc_fused,0.3410,3,537.0
+softmax,tinyc_unfused,0.6993,5,1073.9
+softmax,torch_eager,0.1794,,nan
+matmul_bias_gelu,tinyc_fused,0.8550,1,33.6
+matmul_bias_gelu,tinyc_unfused,0.9636,11,436.2
+matmul_bias_gelu,torch_eager,0.2497,,nan
